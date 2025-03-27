@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domains</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center;
+            background-size: cover;
+        }
+        table { width: 80%; margin: auto; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 20px; border: 2px solid black; text-align: center; }
+        th { background-color: #007BFF; color: white; font-size: 24px; }
+        td {
+            background-color: #f8f9fa;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 30px;
+            cursor: pointer;
+        }
+        td:hover { background-color: #d4edda; }
+        .button {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>BRAINIC TECH SOLUTIONS</h1>
+    <table>
+        <% let domainKeys = Object.keys(domainCounts); %>
+        <% for (let i = 0; i < domainKeys.length; i += 3) { %> <!-- 3 Domains per Row -->
+            <tr>
+                <% for (let j = 0; j < 3; j++) { 
+                    let domain = domainKeys[i + j];
+                    if (domain) { %>
+                    <td>
+                        <a href="/domain/<%= encodeURIComponent(domain) %>" class="button">
+                            <%= domain %> <br> <strong><%= domainCounts[domain] %></strong>
+                        </a>
+                    </td>
+                <% }} %>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>
+
+
+

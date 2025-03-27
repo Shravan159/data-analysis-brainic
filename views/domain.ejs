@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= courseName %> Students</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { width: 80%; margin: auto; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid black; text-align: left; }
+        th { background-color: #007BFF; color: white; }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <h1><%= courseName %> - Students List</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Email Sent Days</th>
+        </tr>
+        <% students.forEach(student => { %>
+        <tr>
+            <td><%= student.username %></td>
+            <td><%= student.email %></td>
+            <td><%= student.phone %></td>
+            <td><%= student.emailSentDays %></td>
+        </tr>
+        <% }); %>
+    </table>
+    <br>
+    <a href="/"><button class="back-button">Back to Domains</button></a>
+</body>
+</html>
