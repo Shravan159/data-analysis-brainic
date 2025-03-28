@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domains</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center;
-            background-size: cover;
-        }
+        body { font-family: Arial, sans-serif; text-align: center; }
         table { width: 80%; margin: auto; border-collapse: collapse; margin-top: 20px; }
         th, td { padding: 20px; border: 2px solid black; text-align: center; }
         th { background-color: #007BFF; color: white; font-size: 24px; }
@@ -32,7 +28,7 @@
     </style>
 </head>
 <body>
-    <h1>BRAINIC TECH SOLUTIONS</h1>
+    <h1>BRAINIC TECH SOLUTIONS STUDENTS DATA</h1>
     <table>
         <% let domainKeys = Object.keys(domainCounts); %>
         <% for (let i = 0; i < domainKeys.length; i += 3) { %> <!-- 3 Domains per Row -->
@@ -42,15 +38,19 @@
                     if (domain) { %>
                     <td>
                         <a href="/domain/<%= encodeURIComponent(domain) %>" class="button">
-                            <%= domain %> <br> <strong><%= domainCounts[domain] %></strong>
+                            <%= domain %> <br> <strong><%= domainCounts[domain] || 0 %></strong>
                         </a>
                     </td>
+                <% } else { %> 
+                    <!-- If no domain exists for the cell, add an empty cell -->
+                    <td></td> 
                 <% }} %>
             </tr>
         <% } %>
     </table>
 </body>
 </html>
+
 
 
 
